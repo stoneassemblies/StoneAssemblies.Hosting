@@ -58,11 +58,38 @@ namespace StoneAssemblies.Hosting.Services.MarathonClient
                 new Uri(new Uri(marathonServiceBaseUrl.TrimEnd(' ', '/')), ServiceEndPoint).AbsoluteUri;
         }
 
+        /// <summary>
+        ///     Gets service end point.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
+        /// <exception cref="NotImplementedException">
+        ///     This method is not actually implemented.
+        /// </exception>
         public Task<string> GetServiceEndPoint(string serviceName, string bindingName)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        ///     Gets service end point address async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="protocol">
+        ///     The protocol.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
         public async Task<string> GetServiceEndPointAddressAsync(string serviceName, string protocol)
         {
             var endPoint = await this.GetServiceEndPointAsync(serviceName);
@@ -70,6 +97,21 @@ namespace StoneAssemblies.Hosting.Services.MarathonClient
             return $"{protocol}://{endPoint}";
         }
 
+        /// <summary>
+        ///     Gets service end point address async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <param name="protocol">
+        ///     The protocol.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
         public async Task<string> GetServiceEndPointAddressAsync(
             string serviceName,
             string bindingName,
@@ -80,16 +122,52 @@ namespace StoneAssemblies.Hosting.Services.MarathonClient
             return $"{protocol}://{endPoint}";
         }
 
+        /// <summary>
+        ///     Gets service end point async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
         public async Task<string> GetServiceEndPointAsync(string serviceName)
         {
             return await this.GetServiceEndPointAsync(serviceName, string.Empty);
         }
 
+        /// <summary>
+        ///     Gets service end point async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
         public async Task<string> GetServiceEndPointAsync(string serviceName, string bindingName)
         {
             return await this.GetServiceEndPointFrom(this.marathonServiceEndPoint, serviceName, bindingName);
         }
 
+        /// <summary>
+        ///     Gets binding name index async.
+        /// </summary>
+        /// <param name="endPoint">
+        ///     The end point.
+        /// </param>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
         private Task<int> GetBindingNameIndexAsync(string endPoint, string serviceName, string bindingName)
         {
             // TODO: Implement this correctly?
@@ -98,6 +176,25 @@ namespace StoneAssemblies.Hosting.Services.MarathonClient
             return Task.FromResult(0);
         }
 
+        /// <summary>
+        ///     Gets service end point from.
+        /// </summary>
+        /// <param name="marathonEndPoint">
+        ///     The marathon end point.
+        /// </param>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
+        /// <exception cref="ArgumentException">
+        ///     If <paramref name="marathonEndPoint" /> or <paramref name="serviceName" /> are <c>null</c> or
+        ///     whitespaces.
+        /// </exception>
         private async Task<string> GetServiceEndPointFrom(
             string marathonEndPoint,
             string serviceName,
