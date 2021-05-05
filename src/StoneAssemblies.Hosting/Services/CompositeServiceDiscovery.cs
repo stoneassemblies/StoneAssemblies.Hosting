@@ -14,20 +14,59 @@ namespace StoneAssemblies.Hosting.Services
 
     using StoneAssemblies.Hosting.Services.Interfaces;
 
+    /// <summary>
+    ///     The composite service discovery.
+    /// </summary>
     public class CompositeServiceDiscovery : IServiceDiscovery
     {
+        /// <summary>
+        ///     The service discoveries.
+        /// </summary>
         private readonly List<IServiceDiscovery> serviceDiscoveries = new List<IServiceDiscovery>();
 
+        /// <summary>
+        ///     Adds a service discovery.
+        /// </summary>
+        /// <param name="serviceDiscovery">
+        ///     The service discovery.
+        /// </param>
         public void Add(IServiceDiscovery serviceDiscovery)
         {
             this.serviceDiscoveries.Add(serviceDiscovery);
         }
 
+        /// <summary>
+        ///     Gets service end point.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
+        /// <exception cref="NotImplementedException">
+        ///     This method is not actually implemented.
+        /// </exception>
         public Task<string> GetServiceEndPoint(string serviceName, string bindingName)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        ///     Gets service end point address async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="protocol">
+        ///     The protocol.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
         public async Task<string> GetServiceEndPointAddressAsync(string serviceName, string protocol)
         {
             foreach (var serviceDiscovery in this.serviceDiscoveries)
@@ -49,16 +88,61 @@ namespace StoneAssemblies.Hosting.Services
             return null;
         }
 
+        /// <summary>
+        ///     Gets service end point address async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <param name="protocol">
+        ///     The protocol.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
+        /// <exception cref="NotImplementedException">
+        ///     This method is not actually implemented.
+        /// </exception>
         public Task<string> GetServiceEndPointAddressAsync(string serviceName, string bindingName, string protocol)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        ///     Gets service end point async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
+        /// <exception cref="NotImplementedException">
+        ///     This method is not actually implemented.
+        /// </exception>
         public Task<string> GetServiceEndPointAsync(string serviceName)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        ///     Gets service end point async.
+        /// </summary>
+        /// <param name="serviceName">
+        ///     The service name.
+        /// </param>
+        /// <param name="bindingName">
+        ///     The binding name.
+        /// </param>
+        /// <returns>
+        ///     The <see cref="Task" />.
+        /// </returns>
+        /// <exception cref="NotImplementedException">
+        ///     This method is not actually implemented.
+        /// </exception>
         public Task<string> GetServiceEndPointAsync(string serviceName, string bindingName)
         {
             throw new NotImplementedException();

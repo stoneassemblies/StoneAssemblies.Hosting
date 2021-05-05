@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IServiceCollectionExtensions.cs" company="Stone Assemblies">
+// <copyright file="ServiceCollectionExtensions.cs" company="Stone Assemblies">
 // Copyright © 2021 - 2021 Stone Assemblies. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
