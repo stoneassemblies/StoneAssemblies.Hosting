@@ -4,9 +4,8 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace StoneAssemblies.Hosting
+namespace StoneAssemblies.Hosting.Services
 {
-    using StoneAssemblies.Hosting.Services;
     using StoneAssemblies.Hosting.Services.Interfaces;
     using StoneAssemblies.Hosting.Services.MarathonClient;
 

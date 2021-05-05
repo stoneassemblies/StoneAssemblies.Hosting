@@ -10,6 +10,8 @@ namespace StoneAssemblies.Hosting.Extensions
 
     using Microsoft.Extensions.DependencyInjection;
 
+    using StoneAssemblies.Hosting.Services;
+
     /// <summary>
     ///     The service collection extensions.
     /// </summary>
